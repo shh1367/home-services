@@ -1,9 +1,7 @@
 package com.example.homeservices.domain.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.example.homeservices.domain.entity.core.AbstractBaseEntity;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,7 +10,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Favor {
+@Builder
+public class Favor extends AbstractBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer favorId;

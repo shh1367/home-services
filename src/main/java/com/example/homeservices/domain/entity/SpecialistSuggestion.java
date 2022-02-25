@@ -1,5 +1,6 @@
 package com.example.homeservices.domain.entity;
 
+import com.example.homeservices.domain.entity.core.AbstractBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SpecialistSuggestion {
+public class SpecialistSuggestion  extends AbstractBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long suggestionId;

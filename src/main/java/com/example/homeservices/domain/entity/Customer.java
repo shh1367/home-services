@@ -1,9 +1,6 @@
 package com.example.homeservices.domain.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,9 +10,9 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode
-public class Customer extends BaseUser {
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_ORDER_ID")
+@Builder
+public class Customer extends BaseUser   {
+    @OneToMany(mappedBy = "customer")
     private List<Order> orderId;
 
 }

@@ -1,5 +1,6 @@
 package com.example.homeservices.domain.entity;
 
+import com.example.homeservices.domain.entity.core.AbstractBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,24 +15,24 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Builder
-public class Order {
+public class Order extends AbstractBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
-    @Column(nullable = false , length = 30 )
+    @Column(nullable = false, length = 30)
     private String taskDescription;
-    @Column(nullable = false )
+    @Column(nullable = false)
     private Date orderDate;
-    @Column(nullable = false , length = 30 )
+    @Column(nullable = false, length = 30)
     private String customerAddress;
-    @Column(nullable = false )
-    private OrderState orderState ;
-    @OneToMany(fetch = FetchType.LAZY)
+    @Column(nullable = false)
+    private OrderState orderState;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_CUSTOMER_ID")
-    private List<Customer> customer;
+    private Customer customer;
     @Column(nullable = true)
     private String customerComment;
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_SPECIALIST_ID")
-    private Specialist specialist ;
+    private Specialist specialist;
 }

@@ -1,6 +1,7 @@
 package com.example.homeservices.domain.entity;
 
 
+import com.example.homeservices.domain.entity.core.AbstractBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Builder
-public class SubFavor {
+public class SubFavor extends AbstractBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long subFavorId;
@@ -29,4 +30,6 @@ public class SubFavor {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_SPECIALIST_ID")
     private List<Specialist> specialist;
+
+
 }
